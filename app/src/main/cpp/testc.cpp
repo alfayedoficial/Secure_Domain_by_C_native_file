@@ -21,11 +21,14 @@
 #include <string>
 #include <iostream>
 
-extern "C"
-jstring
-Java_com_fourdev_testc_MainActivity_baseUrlFromJNI(
-	 JNIEnv* env,
-	 jclass thiz) {
-    std::string baseURL = "https://domainname/functiontype/";
+extern "C" jstring
+Java_com_fourdev_testc_AppConstantsBuilder_developmentUrl(JNIEnv *env, jclass /* this */) {
+    std::string baseURL = "https://xxxxxxxxxxxxxxxxxxDevelopmentURL/";
+    return env->NewStringUTF(baseURL.c_str());
+}
+
+extern "C" jstring
+Java_com_fourdev_testc_AppConstantsBuilder_productionUrl(JNIEnv *env, jclass clazz) {
+    std::string baseURL = "https://xxxxxxxxxxxxxxxxxxProduction/";
     return env->NewStringUTF(baseURL.c_str());
 }
